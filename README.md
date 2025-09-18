@@ -37,7 +37,7 @@ To run this project locally, you can simply open the `index.html` file in your w
 
 1.  Clone the repository:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/projoynaidu-cmd/english-janala.git
     ```
 2.  Navigate to the project directory:
     ```bash
