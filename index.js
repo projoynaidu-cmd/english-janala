@@ -154,28 +154,35 @@ const lessonsBtnClick = (id) => {
  * Filters words based on user input in search bar
  */
 const searchWord = () => {
-    const searchInput = document.getElementById("search-bar");
+    const searchInput = document.getElementById("search-bar"); // Get search input
+    const searchButton = document.getElementById("search-btn"); // Get search button
 
-    // Add input event listener to search bar
-    searchInput.addEventListener("input", (e) => {
-        const searchText = e.target.value.toLowerCase(); // Get search text and convert to lowercase
+    // Function to filter cards based on search text
 
-        // Get all word cards
+    const filterCards = () => {
+        const searchText = searchInput.value.trim().toLowerCase(); // Get search text
         const cards = document.querySelectorAll("#word-container > div");
 
-        // Loop through each card and show/hide based on search text
         cards.forEach((card) => {
-            const word = card.textContent.toLowerCase(); // Get card text content
-
-            // Show card if it contains search text, hide otherwise
+            const word = card.textContent.toLowerCase();
             if (word.includes(searchText)) {
                 card.classList.remove("hidden");
             } else {
                 card.classList.add("hidden");
             }
         });
-    });
+    };
+
+    // Real-time search as user types
+    searchInput.addEventListener("input", filterCards);
+
+    // Search on button click
+     searchButton.addEventListener("click", filterCards);
 };
+
+// Initialize search
+searchWord();
+
 
 // Initialize the search functionality
 searchWord();
